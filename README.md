@@ -1,1 +1,1 @@
-# Докеризация проекта на nuxt.js
+# Dockerizing a Nuxt.js web app
