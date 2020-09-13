@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  node:
+    build:
+      context: ./node
+      dockerfile: Dockerfile
+      args:
+        IMAGE: ${NODE_IMAGE}
+    image: ${NODE_IMAGE}
+    container_name: ${COMPOSE_PROJECT_NAME}-node
+    volumes:
+      - ${APP_HOST}:${APP_CONTAINER}
+    working_dir: ${APP_CONTAINER}
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+    user: "1000:1000"
